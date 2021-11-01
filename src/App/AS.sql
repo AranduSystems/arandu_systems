@@ -1,8 +1,8 @@
 -- --------------------------------------------------------
 -- Host:                         127.0.0.1
--- Versión del servidor:         10.4.14-MariaDB - mariadb.org binary distribution
+-- Versión del servidor:         10.4.20-MariaDB - mariadb.org binary distribution
 -- SO del servidor:              Win64
--- HeidiSQL Versión:             11.1.0.6116
+-- HeidiSQL Versión:             11.3.0.6295
 -- --------------------------------------------------------
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `articulo` (
   CONSTRAINT `FK_ARTICULO_UNIDAD_MEDIDA` FOREIGN KEY (`idunidad`) REFERENCES `unidad_medida` (`idunidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla as.articulo: ~15.234 rows (aproximadamente)
+-- Volcando datos para la tabla as.articulo: ~15.170 rows (aproximadamente)
 /*!40000 ALTER TABLE `articulo` DISABLE KEYS */;
 REPLACE INTO `articulo` (`idarticulo`, `descripcion`, `referencia`, `codigoalfanumerico`, `codigobarra`, `estado`, `observacion`, `idmarca`, `idlinea`, `idseccion`, `idtipo`, `idunidad`, `idimpuesto`) VALUES
 	(1, 'KIT CAMA PORTUGAL 160X190', '', '233-2', '', 'A', '', 1, 11, 1, 1, 1, 3),
@@ -10049,7 +10049,8 @@ REPLACE INTO `articulo` (`idarticulo`, `descripcion`, `referencia`, `codigoalfan
 	(9997, 'POSTE IMPREGNADO 9.00 MTS', '', 'PI9', '', 'A', '', 2, 6, 1, 1, 1, 3),
 	(9998, 'SIFON DUPLO DUDA 25700', '', '25700', '', 'A', '', 1, 1, 1, 1, 1, 3),
 	(9999, 'CABECERA SPLENDORE 1.40', '', '3045-8', '', 'A', '', 1, 11, 1, 1, 1, 3),
-	(10000, 'PUNTO C/PLACA PANAM', '', 'PCPP', '', 'A', '', 1, 1, 1, 1, 1, 1),
+	(10000, 'PUNTO C/PLACA PANAM', '', 'PCPP', '', 'A', '', 1, 1, 1, 1, 1, 1);
+REPLACE INTO `articulo` (`idarticulo`, `descripcion`, `referencia`, `codigoalfanumerico`, `codigobarra`, `estado`, `observacion`, `idmarca`, `idlinea`, `idseccion`, `idtipo`, `idunidad`, `idimpuesto`) VALUES
 	(10001, 'LATEX PINTOR 3.600LT', '', 'LP3.6', '', 'A', '', 1, 14, 1, 1, 1, 3),
 	(10002, 'SOFA X 3 85404-88', '', '85404-88', '', 'A', '', 1, 11, 1, 1, 1, 3),
 	(10003, 'PISTOLA CALOR BLACK&DEC. HG2000', '', 'HG2000', '', 'A', '', 1, 4, 1, 1, 1, 3),
@@ -11279,8 +11280,7 @@ REPLACE INTO `articulo` (`idarticulo`, `descripcion`, `referencia`, `codigoalfan
 	(11227, 'LUMINARIA CIRCULAR TLC01', '', 'TLC01', '', 'A', '', 1, 1, 1, 1, 1, 3),
 	(11228, 'LUMINARIA DE TECHO CIRC. TLR10', '', 'TLR10', '', 'A', '', 1, 1, 1, 1, 1, 3),
 	(11229, 'ESPEJO E56 REFORZADO', '', 'E56', '', 'A', '', 1, 1, 1, 1, 1, 3),
-	(11230, 'ESPEJO N56 C/REPISA', '', 'N56', '', 'A', '', 1, 1, 1, 1, 1, 3);
-REPLACE INTO `articulo` (`idarticulo`, `descripcion`, `referencia`, `codigoalfanumerico`, `codigobarra`, `estado`, `observacion`, `idmarca`, `idlinea`, `idseccion`, `idtipo`, `idunidad`, `idimpuesto`) VALUES
+	(11230, 'ESPEJO N56 C/REPISA', '', 'N56', '', 'A', '', 1, 1, 1, 1, 1, 3),
 	(11231, 'ARAÑA 3 LUCES 7403/3', '', '7403/3', '', 'A', '', 1, 11, 1, 1, 1, 3),
 	(11232, 'ARAÑA 3 LUCES 7717/3', '', '7717/3', '', 'A', '', 1, 11, 1, 1, 1, 3),
 	(11233, 'KG PASTINA FORTALEZA NEGRO', '', 'RFN', '', 'A', '', 1, 1, 1, 1, 1, 3),
@@ -15083,6 +15083,9 @@ CREATE TABLE IF NOT EXISTS `articulo_lista_precio` (
 
 -- Volcando datos para la tabla as.articulo_lista_precio: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `articulo_lista_precio` DISABLE KEYS */;
+REPLACE INTO `articulo_lista_precio` (`idarticulo`, `idlista`, `precio`) VALUES
+	(1, 1, 2470000),
+	(2, 1, 300);
 /*!40000 ALTER TABLE `articulo_lista_precio` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.articulo_periodo
@@ -15102,6 +15105,12 @@ CREATE TABLE IF NOT EXISTS `articulo_periodo` (
 
 -- Volcando datos para la tabla as.articulo_periodo: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `articulo_periodo` DISABLE KEYS */;
+REPLACE INTO `articulo_periodo` (`idarticulo`, `idperiodo`, `idmoneda`, `costo`) VALUES
+	(1, 1, 1, 1900000),
+	(2, 1, 1, 150),
+	(3, 1, 1, 200),
+	(4, 1, 1, 200),
+	(5, 1, 1, 200);
 /*!40000 ALTER TABLE `articulo_periodo` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.banco
@@ -21632,7 +21641,7 @@ CREATE TABLE IF NOT EXISTS `impresora` (
 -- Volcando datos para la tabla as.impresora: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `impresora` DISABLE KEYS */;
 REPLACE INTO `impresora` (`idimpresora`, `descripcion`, `ultimo_numero_factura`, `ultimo_numero_recibo`, `ultimo_numero_nota_credito`, `ultimo_numero_nota_debito`) VALUES
-	(1, 'IMPRESORA N°1', '001-001-0000000', '001-001-0000000', '001-001-0000000', '001-001-0000000');
+	(1, 'IMPRESORA N°1', '001-001-0000001', '001-001-0000000', '001-001-0000000', '001-001-0000000');
 /*!40000 ALTER TABLE `impresora` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.impresora_timbrado
@@ -21761,11 +21770,7 @@ CREATE TABLE IF NOT EXISTS `moneda` (
 /*!40000 ALTER TABLE `moneda` DISABLE KEYS */;
 REPLACE INTO `moneda` (`idmoneda`, `descripcion`, `simbolo`) VALUES
 	(1, 'GUARANIES', 'GS'),
-	(2, 'DOLARES', 'US'),
-	(3, 'REAL', 'RL'),
-	(4, 'PESO ARGENTINO', 'PA'),
-	(5, 'EURO', 'ER'),
-	(6, 'PESO URUGUAYO', 'PU');
+	(2, 'DOLARES', 'US');
 /*!40000 ALTER TABLE `moneda` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.motivo_ajuste
@@ -21827,6 +21832,8 @@ CREATE TABLE IF NOT EXISTS `periodo` (
 
 -- Volcando datos para la tabla as.periodo: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `periodo` DISABLE KEYS */;
+REPLACE INTO `periodo` (`idperiodo`, `fecha_desde`, `fecha_hasta`) VALUES
+	(1, '2021-11-01', '2021-11-30');
 /*!40000 ALTER TABLE `periodo` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.programa
@@ -25779,6 +25786,6 @@ INNER JOIN tipo_proveedor AS TP ON TP.idtipo = P.idtipo
 ORDER BY P.idproveedor ASC ;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
-/*!40014 SET FOREIGN_KEY_CHECKS=IF(@OLD_FOREIGN_KEY_CHECKS IS NULL, 1, @OLD_FOREIGN_KEY_CHECKS) */;
+/*!40014 SET FOREIGN_KEY_CHECKS=IFNULL(@OLD_FOREIGN_KEY_CHECKS, 1) */;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+/*!40111 SET SQL_NOTES=IFNULL(@OLD_SQL_NOTES, 1) */;

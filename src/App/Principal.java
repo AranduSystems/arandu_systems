@@ -113,7 +113,6 @@ public class Principal extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         panelInterno = new javax.swing.JDesktopPane();
-        jLabel10 = new javax.swing.JLabel();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
         jMenu2 = new javax.swing.JMenu();
@@ -195,27 +194,15 @@ public class Principal extends javax.swing.JFrame {
         jLabel1.setText("Arandu Systems - 2021. Desarrollado por Armando Ariel Peralta Martinez. Contacto: +595 975489075");
         jLabel1.setOpaque(true);
 
-        jLabel10.setFont(new java.awt.Font("Segoe UI Semilight", 1, 20)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/arandulogo.png"))); // NOI18N
-
-        panelInterno.setLayer(jLabel10, javax.swing.JLayeredPane.DEFAULT_LAYER);
-
         javax.swing.GroupLayout panelInternoLayout = new javax.swing.GroupLayout(panelInterno);
         panelInterno.setLayout(panelInternoLayout);
         panelInternoLayout.setHorizontalGroup(
             panelInternoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInternoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addGap(0, 1389, Short.MAX_VALUE)
         );
         panelInternoLayout.setVerticalGroup(
             panelInternoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelInternoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 461, Short.MAX_VALUE))
+            .addGap(0, 472, Short.MAX_VALUE)
         );
 
         jMenuBar1.setFont(new java.awt.Font("Calibri", 0, 12)); // NOI18N
@@ -1746,7 +1733,6 @@ public class Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem itemVendedor;
     private javax.swing.JMenuItem itemVenta;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel10;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
