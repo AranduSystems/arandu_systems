@@ -286,4 +286,39 @@ public class DAOTipoMovimiento implements OperacionesTipoMovimiento {
         }
     }
 
+    @Override
+    public boolean consultarDatosFacturaVentas(Object obj) {
+        tm = (TipoMovimiento) obj;
+        String sql = "SELECT TM.* FROM tipo_movimiento AS TM\n"
+                + "INNER JOIN tipo_comprobante AS TC ON TC.idtipo = TM.idtipo\n"
+                + "WHERE TM.idtipomovimiento = ?\n"
+                + "AND 	TC.idtipo = 1\n"
+                + "AND 	TM.descripcion LIKE '%EMITIDA%';";
+        Connection con;
+        PreparedStatement ps;
+        ResultSet rs;
+        try {
+            Class.forName(db.getDriver());
+            con = DriverManager.getConnection(db.getUrl(), db.getUser(), db.getPass());
+            ps = con.prepareStatement(sql);
+            ps.setInt(1, tm.getIdtipomovimiento());
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                tm.setIdtipo(rs.getInt(1));
+                tm.setDescripcion(rs.getString(2));
+                tm.setAbreviacion(rs.getString(3));
+                tm.setIdtipo(rs.getInt(4));
+                con.close();
+                return true;
+            } else {
+                JOptionPane.showMessageDialog(null, "NO EXISTE TIPO DE MOVIMIENTO CON EL CÓDIGO INGRESADO...", "ADVERTENCIA", JOptionPane.WARNING_MESSAGE);
+                con.close();
+                return false;
+            }
+        } catch (SQLException | ClassNotFoundException e) {
+            JOptionPane.showMessageDialog(null, "HA OCURRIDO UN ERROR AL OBTENER EL REGISTRO SELECCIONADO \n" + e.getMessage(), "ERROR", JOptionPane.ERROR_MESSAGE);
+            return false;
+        }
+    }
+
 }

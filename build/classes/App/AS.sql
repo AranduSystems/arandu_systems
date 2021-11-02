@@ -47,7 +47,7 @@ CREATE TABLE IF NOT EXISTS `articulo` (
   CONSTRAINT `FK_ARTICULO_UNIDAD_MEDIDA` FOREIGN KEY (`idunidad`) REFERENCES `unidad_medida` (`idunidad`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla as.articulo: ~15.067 rows (aproximadamente)
+-- Volcando datos para la tabla as.articulo: ~15.170 rows (aproximadamente)
 /*!40000 ALTER TABLE `articulo` DISABLE KEYS */;
 REPLACE INTO `articulo` (`idarticulo`, `descripcion`, `referencia`, `codigoalfanumerico`, `codigobarra`, `estado`, `observacion`, `idmarca`, `idlinea`, `idseccion`, `idtipo`, `idunidad`, `idimpuesto`) VALUES
 	(1, 'KIT CAMA PORTUGAL 160X190', '', '233-2', '', 'A', '', 1, 11, 1, 1, 1, 3),
@@ -15065,23 +15065,8 @@ CREATE TABLE IF NOT EXISTS `articulo_deposito` (
   CONSTRAINT `FK_ARTICULO_DEPOSITO_DEPOSITO` FOREIGN KEY (`iddeposito`) REFERENCES `deposito` (`iddeposito`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla as.articulo_deposito: ~14 rows (aproximadamente)
+-- Volcando datos para la tabla as.articulo_deposito: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `articulo_deposito` DISABLE KEYS */;
-REPLACE INTO `articulo_deposito` (`idarticulo`, `iddeposito`, `cantidad`) VALUES
-	(1, 1, -1),
-	(511, 1, -2),
-	(714, 1, -25),
-	(939, 1, -100),
-	(2493, 1, -50),
-	(2608, 1, -25),
-	(3152, 1, -5),
-	(4199, 1, -100),
-	(5132, 1, -100),
-	(5354, 1, -12),
-	(9459, 1, -20),
-	(10395, 1, -10),
-	(11251, 1, -15),
-	(11445, 1, -50);
 /*!40000 ALTER TABLE `articulo_deposito` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.articulo_lista_precio
@@ -15096,23 +15081,11 @@ CREATE TABLE IF NOT EXISTS `articulo_lista_precio` (
   CONSTRAINT `FK_ARTICULO_LISTA_PRECIO_LISTA_PRECIO` FOREIGN KEY (`idlista`) REFERENCES `lista_precio` (`idlista`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla as.articulo_lista_precio: ~14 rows (aproximadamente)
+-- Volcando datos para la tabla as.articulo_lista_precio: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `articulo_lista_precio` DISABLE KEYS */;
 REPLACE INTO `articulo_lista_precio` (`idarticulo`, `idlista`, `precio`) VALUES
-	(1, 1, 1175000),
-	(511, 1, 2300000),
-	(714, 1, 12500),
-	(939, 1, 500),
-	(2493, 1, 3000),
-	(2608, 1, 13000),
-	(3152, 1, 27500),
-	(4199, 1, 13000),
-	(5132, 1, 100),
-	(5354, 1, 6500),
-	(9459, 1, 24000),
-	(10395, 1, 15000),
-	(11251, 1, 50000),
-	(11445, 1, 1500);
+	(1, 1, 2470000),
+	(2, 1, 300);
 /*!40000 ALTER TABLE `articulo_lista_precio` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.articulo_periodo
@@ -15132,6 +15105,12 @@ CREATE TABLE IF NOT EXISTS `articulo_periodo` (
 
 -- Volcando datos para la tabla as.articulo_periodo: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `articulo_periodo` DISABLE KEYS */;
+REPLACE INTO `articulo_periodo` (`idarticulo`, `idperiodo`, `idmoneda`, `costo`) VALUES
+	(1, 1, 1, 1900000),
+	(2, 1, 1, 150),
+	(3, 1, 1, 200),
+	(4, 1, 1, 200),
+	(5, 1, 1, 200);
 /*!40000 ALTER TABLE `articulo_periodo` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.banco
@@ -21566,8 +21545,6 @@ CREATE TABLE IF NOT EXISTS `cotizacion` (
 
 -- Volcando datos para la tabla as.cotizacion: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `cotizacion` DISABLE KEYS */;
-REPLACE INTO `cotizacion` (`idmoneda`, `fecha`, `tasacompra`, `tasaventa`) VALUES
-	(2, '2021-09-02', 6900, 7000);
 /*!40000 ALTER TABLE `cotizacion` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.cuenta
@@ -21605,8 +21582,6 @@ CREATE TABLE IF NOT EXISTS `cuenta_saldo` (
 
 -- Volcando datos para la tabla as.cuenta_saldo: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `cuenta_saldo` DISABLE KEYS */;
-REPLACE INTO `cuenta_saldo` (`idcuenta`, `fecha`, `entrada`, `salida`, `entrada_anulado`, `salida_anulado`) VALUES
-	(1, '2021-09-09', 8853000, 0, 0, 0);
 /*!40000 ALTER TABLE `cuenta_saldo` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.deposito
@@ -21666,7 +21641,7 @@ CREATE TABLE IF NOT EXISTS `impresora` (
 -- Volcando datos para la tabla as.impresora: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `impresora` DISABLE KEYS */;
 REPLACE INTO `impresora` (`idimpresora`, `descripcion`, `ultimo_numero_factura`, `ultimo_numero_recibo`, `ultimo_numero_nota_credito`, `ultimo_numero_nota_debito`) VALUES
-	(1, 'IMPRESORA N°1', '001-001-0000003', '001-001-0000000', '001-001-0000000', '001-001-0000000');
+	(1, 'IMPRESORA N°1', '001-001-0000001', '001-001-0000000', '001-001-0000000', '001-001-0000000');
 /*!40000 ALTER TABLE `impresora` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.impresora_timbrado
@@ -21795,11 +21770,7 @@ CREATE TABLE IF NOT EXISTS `moneda` (
 /*!40000 ALTER TABLE `moneda` DISABLE KEYS */;
 REPLACE INTO `moneda` (`idmoneda`, `descripcion`, `simbolo`) VALUES
 	(1, 'GUARANIES', 'GS'),
-	(2, 'DOLARES', 'US'),
-	(3, 'REAL', 'RL'),
-	(4, 'PESO ARGENTINO', 'PA'),
-	(5, 'EURO', 'ER'),
-	(6, 'PESO URUGUAYO', 'PU');
+	(2, 'DOLARES', 'US');
 /*!40000 ALTER TABLE `moneda` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.motivo_ajuste
@@ -21859,11 +21830,10 @@ CREATE TABLE IF NOT EXISTS `periodo` (
   PRIMARY KEY (`idperiodo`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla as.periodo: ~2 rows (aproximadamente)
+-- Volcando datos para la tabla as.periodo: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `periodo` DISABLE KEYS */;
 REPLACE INTO `periodo` (`idperiodo`, `fecha_desde`, `fecha_hasta`) VALUES
-	(1, '2021-08-01', '2021-08-31'),
-	(2, '2021-09-01', '2021-09-30');
+	(1, '2021-11-01', '2021-11-30');
 /*!40000 ALTER TABLE `periodo` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.programa
@@ -24433,12 +24403,8 @@ CREATE TABLE IF NOT EXISTS `venta` (
   CONSTRAINT `FK_VENTA_VENDEDOR` FOREIGN KEY (`idvendedor`) REFERENCES `vendedor` (`idvendedor`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla as.venta: ~3 rows (aproximadamente)
+-- Volcando datos para la tabla as.venta: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `venta` DISABLE KEYS */;
-REPLACE INTO `venta` (`idventa`, `numerodocumento`, `numerotimbrado`, `fecha`, `observacion`, `idmoneda`, `iddeposito`, `idtipomovimiento`, `idcliente`, `idusuario`, `totalneto`, `totaliva`, `idcuenta`, `idempresa`, `idsucursal`, `idvendedor`) VALUES
-	(1, '001-001-0000001', 82563333, '2021-09-09', 'PRUEBA DE VENTA A CREDITO CON GENERACION DE CUOTAS', 1, 1, 4, 1, 1, 672727, 67273, 0, 1, 1, 1),
-	(2, '001-001-0000002', 82563333, '2021-09-09', '', 1, 1, 3, 1, 1, 2090909, 209091, 1, 1, 1, 1),
-	(3, '001-001-0000003', 82563333, '2021-09-09', '', 1, 1, 3, 1, 1, 5957275, 595725, 1, 1, 1, 1);
 /*!40000 ALTER TABLE `venta` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.venta_cobro_cuota
@@ -24478,17 +24444,8 @@ CREATE TABLE IF NOT EXISTS `venta_cuota` (
   CONSTRAINT `FK_VENTA_CUOTA_VENTA` FOREIGN KEY (`idventa`) REFERENCES `venta` (`idventa`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla as.venta_cuota: ~8 rows (aproximadamente)
+-- Volcando datos para la tabla as.venta_cuota: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `venta_cuota` DISABLE KEYS */;
-REPLACE INTO `venta_cuota` (`idventa`, `numero`, `monto`, `fechavencimiento`) VALUES
-	(1, 0, 40000, '2021-09-09'),
-	(1, 1, 100000, '2021-10-09'),
-	(1, 2, 100000, '2021-11-09'),
-	(1, 3, 100000, '2021-12-09'),
-	(1, 4, 100000, '2022-01-09'),
-	(1, 5, 100000, '2022-02-09'),
-	(1, 6, 100000, '2022-03-09'),
-	(1, 7, 100000, '2022-04-09');
 /*!40000 ALTER TABLE `venta_cuota` ENABLE KEYS */;
 
 -- Volcando estructura para tabla as.venta_detalle
@@ -24508,26 +24465,8 @@ CREATE TABLE IF NOT EXISTS `venta_detalle` (
   CONSTRAINT `FK_VENTA_DETALLE_VENTA` FOREIGN KEY (`idventa`) REFERENCES `venta` (`idventa`) ON DELETE NO ACTION ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
--- Volcando datos para la tabla as.venta_detalle: ~17 rows (aproximadamente)
+-- Volcando datos para la tabla as.venta_detalle: ~0 rows (aproximadamente)
 /*!40000 ALTER TABLE `venta_detalle` DISABLE KEYS */;
-REPLACE INTO `venta_detalle` (`idventa`, `idarticulo`, `precio`, `cantidad`, `numeroitem`, `iva`, `porcentajeiva`, `referencia`) VALUES
-	(1, 9459, 21818, 10, 2, 2182, 10, '9459'),
-	(1, 11251, 45455, 10, 1, 4545, 10, '11251'),
-	(2, 511, 2090909, 1, 1, 209091, 10, '511'),
-	(3, 1, 1068182, 1, 1, 106818, 10, '1'),
-	(3, 511, 2090909, 1, 2, 209091, 10, '511'),
-	(3, 714, 11364, 25, 3, 1136, 10, '714'),
-	(3, 939, 455, 100, 4, 45, 10, '939'),
-	(3, 2493, 2727, 50, 5, 273, 10, '2493'),
-	(3, 2608, 11818, 25, 6, 1182, 10, '2608'),
-	(3, 3152, 25000, 5, 7, 2500, 10, '3152'),
-	(3, 4199, 11818, 100, 8, 1182, 10, '4199'),
-	(3, 5132, 91, 100, 9, 9, 10, '5132'),
-	(3, 5354, 5909, 12, 10, 591, 10, '5354'),
-	(3, 9459, 21818, 10, 11, 2182, 10, '9459'),
-	(3, 10395, 13636, 10, 12, 1364, 10, '10395'),
-	(3, 11251, 45455, 5, 13, 4545, 10, '11251'),
-	(3, 11445, 1364, 50, 14, 136, 10, '11445');
 /*!40000 ALTER TABLE `venta_detalle` ENABLE KEYS */;
 
 -- Volcando estructura para vista as.v_compra_anulado
@@ -24668,19 +24607,6 @@ CREATE TABLE `v_listado_proveedor` (
 	`idtipo` INT(11) NOT NULL,
 	`tipo_proveedor` VARCHAR(100) NOT NULL COLLATE 'utf8_general_ci'
 ) ENGINE=MyISAM;
-
--- Volcando estructura para procedimiento as.decena
-DELIMITER //
-CREATE PROCEDURE `decena`(
-	IN `Aislado` VARCHAR(100),
-	INOUT `Cadena` VARCHAR(100)
-)
-BEGIN
-	IF Aislado < 10 THEN
-		CALL p_unidad(SUBSTR(Aislado,2,1));
-	END IF;
-END//
-DELIMITER ;
 
 -- Volcando estructura para procedimiento as.P_ACT_CUENTA_SALDO
 DELIMITER //
@@ -24992,55 +24918,6 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para procedimiento as.p_unidad
-DELIMITER //
-CREATE PROCEDURE `p_unidad`(
-	IN `xVALOR` INT
-)
-BEGIN
-	SET @valor = '';
-	CALL `unidad`(xVALOR, @valor);
-	SELECT @valor;
-END//
-DELIMITER ;
-
--- Volcando estructura para procedimiento as.unidad
-DELIMITER //
-CREATE PROCEDURE `unidad`(
-	IN `Aislado` VARCHAR(50),
-	INOUT `Cadena` VARCHAR(100)
-)
-BEGIN
-		if Aislado = '0' then
-	      If Cadena =  '' Then
-	         SET Cadena =  'CERO';
-	      End If;
-		elseif Aislado = '1' then
-	      If Cadena = '' Then
-	         SET Cadena =  'UNO';
-	      Else
-	         SET Cadena =  CONCAT(Cadena,'UN');
-	      End If;
-	   elseif Aislado = '2' then
-	      SET Cadena =  CONCAT(Cadena,'DOS');
-	   elseif Aislado = '3' then
-	      SET Cadena =  CONCAT(Cadena,'TRES');
-	   elseif Aislado = '4' then
-	      SET Cadena =  CONCAT(Cadena,'CUATRO');
-	   elseif Aislado = '5' then
-	      SET Cadena =  CONCAT(Cadena,'CINCO');
-	   elseif Aislado = '6' then
-	      SET Cadena =  CONCAT(Cadena,'SEIS');
-	   elseif Aislado = '7' then
-	      SET Cadena =  CONCAT(Cadena,'SIETE');
-	   elseif Aislado = '8' then
-	      SET Cadena =  CONCAT(Cadena,'OCHO');
-	   elseif Aislado = '9' then
-	      SET Cadena =  CONCAT(Cadena,'NUEVE');
-		End if;
-END//
-DELIMITER ;
-
 -- Volcando estructura para función as.CENTENAS_LETRAS
 DELIMITER //
 CREATE FUNCTION `CENTENAS_LETRAS`(`xVALOR` INT
@@ -25055,7 +24932,6 @@ BEGIN
 		SET V_CADENA = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
 	ELSEIF xVALOR = 100 THEN
 		SET V_CADENA = 'CIEN';
-		
 	ELSEIF xVALOR < 200 THEN
 		SET V_CADENA = CONCAT(V_CADENA,'CIENTO ');
 		SET V_CADENA_DOS = DECENAS_LETRAS(SUBSTR(xVALOR,2,2));
@@ -25108,59 +24984,6 @@ BEGIN
 		SET V_CADENA = CONCAT(V_CADENA,'NOVECIENTOS ');
 		SET V_CADENA_DOS = DECENAS_LETRAS(SUBSTR(xVALOR,2,2));
 		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
-	END IF;
-	
-	RETURN V_CADENA;
-END//
-DELIMITER ;
-
--- Volcando estructura para función as.CENTENAS_MILES_LETRAS
-DELIMITER //
-CREATE FUNCTION `CENTENAS_MILES_LETRAS`(`xVALOR` INT
-) RETURNS varchar(100) CHARSET utf8mb4
-BEGIN
-DECLARE V_CADENA VARCHAR(100);
-	DECLARE V_CADENA_DOS VARCHAR(100);
-	DECLARE V_CADENA_TRES VARCHAR(100);
-	DECLARE V_CADENA_CUATRO VARCHAR(100);
-	SET V_CADENA = '';
-	SET V_CADENA_DOS = '';
-	SET V_CADENA_TRES = '';
-	SET V_CADENA_CUATRO = '';
-	
-	IF xVALOR = 100000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 200000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 300000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 400000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 500000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 600000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 700000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 800000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 900000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR < 1000000 THEN
-		 -- 835000
-		SET V_CADENA_DOS = DECENAS_MILES_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,4,6));
-		
-		SET v_CADENA = CONCAT(V_CADENA_DOS,' MIL ',V_CADENA_TRES, V_CADENA_CUATRO);
 	END IF;
 	
 	RETURN V_CADENA;
@@ -25243,63 +25066,6 @@ BEGIN
 		SET V_CADENA = CONCAT(V_CADENA,'NOVENTA Y ');
 		SET V_CADENA_DOS = UNIDADES_LETRAS(SUBSTR(xVALOR,LENGTH(xVALOR),1));
 		SET V_CADENA = CONCAT(V_CADENA,V_CADENA_DOS);		
-	END IF;
-	
-	RETURN V_CADENA;
-END//
-DELIMITER ;
-
--- Volcando estructura para función as.DECENAS_MILES_LETRAS
-DELIMITER //
-CREATE FUNCTION `DECENAS_MILES_LETRAS`(`xVALOR` INT
-) RETURNS varchar(100) CHARSET utf8mb4
-BEGIN
-	DECLARE V_CADENA VARCHAR(100);
-	DECLARE V_CADENA_DOS VARCHAR(100);
-	DECLARE V_CADENA_TRES VARCHAR(100);
-	SET V_CADENA = '';
-	SET V_CADENA_DOS = '';
-	SET V_CADENA_TRES = '';
-	
-	IF xVALOR = 10000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 20000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 30000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 40000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 50000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 60000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 70000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 80000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 90000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1,2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	ELSEIF xVALOR = 100000 THEN
-		SET V_CADENA_TRES = CENTENAS_LETRAS(SUBSTR(xVALOR,1,3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES, ' MIL ');
-	
-	ELSEIF xVALOR < 10000 THEN
-		SET V_CADENA = MILES_LETRAS(SUBSTR(xVALOR,1,4));
-	
-	ELSEIF xVALOR > 10000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR,1, 2)); 
-		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,3, 3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL ');
-		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
 	END IF;
 	
 	RETURN V_CADENA;
@@ -25399,9 +25165,9 @@ BEGIN
 END//
 DELIMITER ;
 
--- Volcando estructura para función as.MILES_LETRAS
+-- Volcando estructura para función as.MILLONES_LETRAS
 DELIMITER //
-CREATE FUNCTION `MILES_LETRAS`(`xVALOR` INT
+CREATE FUNCTION `MILLONES_LETRAS`(`xVALOR` INT
 ) RETURNS varchar(100) CHARSET utf8mb4
 BEGIN	
 	DECLARE V_CADENA VARCHAR(100);
@@ -25422,40 +25188,64 @@ BEGIN
 	ELSEIF xVALOR < 2000 THEN
 		SET V_CADENA = CONCAT(V_CADENA, 'MIL ');
 		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
-		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);	
-	ELSEIF xVALOR = 2000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
+	ELSEIF xVALOR >= 2000 THEN
+		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR,LENGTH(xVALOR),1));
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA_TRES, V_CADENA_DOS, V_CADENA);
+	/*ELSEIF xVALOR = 2000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'DOS MIL');
+	ELSEIF xVALOR < 3000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'DOS MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
 	ELSEIF xVALOR = 3000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
+		SET V_CADENA = CONCAT(V_CADENA, 'TRES MIL');
+	ELSEIF xVALOR < 4000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'TRES MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
 	ELSEIF xVALOR = 4000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
+		SET V_CADENA = CONCAT(V_CADENA, 'CUATRO MIL');	
+	ELSEIF xVALOR < 5000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'CUATRO MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
 	ELSEIF xVALOR = 5000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
+		SET V_CADENA = CONCAT(V_CADENA, 'CINCO MIL');	
+	ELSEIF xVALOR < 6000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'CINCO MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
 	ELSEIF xVALOR = 6000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
+		SET V_CADENA = CONCAT(V_CADENA, 'SEIS MIL');
+	ELSEIF xVALOR < 7000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'SEIS MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
 	ELSEIF xVALOR = 7000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
-   ELSEIF xVALOR = 8000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
+		SET V_CADENA = CONCAT(V_CADENA, 'SIETE MIL');
+	ELSEIF xVALOR < 8000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'SIETE MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
+	ELSEIF xVALOR = 8000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'OCHO MIL');
+	ELSEIF xVALOR < 9000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'OCHO MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);	
 	ELSEIF xVALOR = 9000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
+		SET V_CADENA = CONCAT(V_CADENA, 'NUEVE MIL');
+	ELSEIF xVALOR < 10000 THEN
+		SET V_CADENA = CONCAT(V_CADENA, 'NUEVE MIL ');
+		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR,2,3));
+		SET V_CADENA = CONCAT(V_CADENA, V_CADENA_DOS);
 	ELSEIF xVALOR = 10000 THEN
-		SET V_CADENA_TRES = DECENAS_LETRAS(SUBSTR(xVALOR, 1, 2));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL');
-	ELSEIF xVALOR > 2000 THEN
-		SET V_CADENA_TRES = UNIDADES_LETRAS(SUBSTR(xVALOR, 1, 1));
-		SET V_CADENA_DOS = CENTENAS_LETRAS(SUBSTR(xVALOR, 2, 3));
-		SET V_CADENA = CONCAT(V_CADENA_TRES,' MIL ', V_CADENA_DOS);
+		SET V_CADENA = CONCAT(V_CADENA, 'DIEZ MIL');*/
 	
 	END IF;
+	
 	
 	RETURN V_CADENA;
 END//

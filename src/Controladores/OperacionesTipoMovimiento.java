@@ -15,4 +15,5 @@ public interface OperacionesTipoMovimiento {
     public boolean consultarDatos(Object obj);
     public ArrayList<Object[]> consultarFactura(String criterio, String tipo);
     public boolean consultarDatosFactura(Object obj);
+    public boolean consultarDatosFacturaVentas(Object obj);
 }
